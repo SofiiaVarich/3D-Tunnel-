@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
-<title>QuantumMechanicsFU</title>
+<title>Quantum Atlas</title>
 <link rel="stylesheet" href="assets/katex/katex.min.css">
 <script src="assets/katex/katex.min.js"></script>
 <style>
@@ -83,13 +83,13 @@ details{margin-top:20px}summary{cursor:pointer;font-weight:600;padding:12px 0}
 </head>
 <body>
 <nav>
-  <div class="logo"><i></i>QuantumMechanicsFU</div>
+  <div class="logo"><i></i>Quantum Atlas</div>
   <ul><li><button id="n1" type="button">Kurs</button></li><li><button id="n2" type="button">Übungen</button></li><li><button id="n3" type="button">Über</button></li></ul>
   <button class="pill dark" id="quiz">Karte lernen →</button>
 </nav>
 <div id="stage"><div id="tilt"><div id="spin"></div></div></div>
 <div id="hole"><svg viewBox="0 0 100 50"><path d="M50 25C40 8 12 8 12 25s28 17 38 0 38-17 38 0-28 17-38 0z" fill="none" stroke="#dff0ff" stroke-width="4"/></svg></div>
-<div id="hero"><h1>QuantumMechanicsFU</h1><p>Lernkarten und Formeln aus deinen Kurstabellen</p><button class="pill light" id="dive">Kurs erkunden →</button></div>
+<div id="hero"><h1>Quantum Atlas</h1><p>Lernkarten und Formeln aus deinen Kurstabellen</p><button class="pill light" id="dive">Kurs erkunden →</button></div>
 <div id="hint"><b>⌄</b>Scrollen · Ziehen · Karte anklicken · Esc zum Zurückkehren</div>
 <script src="cards.js"></script>
 <script>
@@ -233,7 +233,7 @@ const rnd=()=>{const i=Math.floor(Math.random()*T.length);return[T[i],'c-'+ST[i%
 const dive=()=>{vel=3000};
 document.getElementById('dive').onclick=dive;document.getElementById('n1').onclick=dive;
 document.getElementById('quiz').onclick=document.getElementById('n2').onclick=()=>{const[t,c]=rnd();openT(t,{left:innerWidth/2-100,top:innerHeight/2-70,width:200,height:140},0,c)};
-document.getElementById('n3').onclick=()=>openT({t:'Über',f:'iħ ∂ψ/∂t = Hψ',x:'QuantumMechanicsFU enthält '+T.length+' Lernkarten aus den bereitgestellten Kurstabellen. Klicke eine Karte an, erinnere dich an die Antwort und öffne dann die Definitionen, Formeln und Quellen. Übungen öffnet eine zufällige Karte. Die Inhalte bleiben in der Originalsprache der Tabellen.',q:'Bereit? Klicke eine Karte im Tunnel an.',o:['Ja!'],a:0},{left:innerWidth/2-100,top:innerHeight/2-70,width:200,height:140},0,'c-white');
+document.getElementById('n3').onclick=()=>openT({t:'Über',f:'iħ ∂ψ/∂t = Hψ',x:'Quantum Atlas enthält '+T.length+' Lernkarten aus den bereitgestellten Kurstabellen. Klicke eine Karte an, erinnere dich an die Antwort und öffne dann die Definitionen, Formeln und Quellen. Übungen öffnet eine zufällige Karte. Die Inhalte bleiben in der Originalsprache der Tabellen.',q:'Bereit? Klicke eine Karte im Tunnel an.',o:['Ja!'],a:0},{left:innerWidth/2-100,top:innerHeight/2-70,width:200,height:140},0,'c-white');
 </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-# QuantumMechanicsFU — 3D Tunnel
+# Quantum Atlas — 3D Tunnel
 
 An interactive quantum mechanics flashcard tunnel built with HTML, CSS 3D transforms, and vanilla JavaScript. No installation, build step, CDN, or network connection is required. KaTeX 0.16.22 is bundled locally for mathematical typesetting (MIT license in `assets/katex/LICENSE`).
 
