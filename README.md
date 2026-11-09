@@ -37,7 +37,7 @@ The interface is German; imported material keeps the original spreadsheet langua
 
 Cards show only the concept, formula or key statement, meaning, and application when available. Duplicate values, card IDs, priorities, spreadsheet metadata, source references, and Telegram formatting are hidden. Original fields and source provenance remain in `cards.js`. Study-guide and verification-note sheets are not converted into cards; the supplied workbooks remain authoritative for those editorial notes.
 
-The 325 cards with supplied LaTeX are typeset with KaTeX in both tunnel previews and answer panels, using mathematical fractions, matrices, integrals, superscripts, and bra–ket notation. Cards without LaTeX retain their supplied Unicode notation rather than an inferred conversion. Exact matching to the lecture book cannot be guaranteed without the original PDFs. The formula-reference workbook's **72 embedded equation images** are extracted into `assets/formulas/` and shown in the answer panels; no formulas are inferred from images. Spreadsheet text is inserted using `textContent`, not interpreted as HTML.
+The 418 cards with LaTeX (325 supplied in the workbooks and 93 presentation transcriptions for Chapters 7–9) are typeset with KaTeX in both tunnel previews and answer panels, using mathematical fractions, matrices, integrals, superscripts, and bra–ket notation. Cards without LaTeX retain their supplied Unicode notation rather than an inferred conversion. Exact matching to the lecture book cannot be guaranteed without the original PDFs. The formula-reference workbook's **72 embedded equation images** are extracted into `assets/formulas/` and shown in the answer panels; no formulas are inferred from images. Spreadsheet text is inserted using `textContent`, not interpreted as HTML.
 
 ### Source workbooks
 
@@ -63,4 +63,4 @@ The source XLSX files are not copied into this repository. Content is transcribe
 python3 import_cards.py "/path/to/workbooks"
 ```
 
-This regenerates `cards.js` and extracts formula images. Only the explicitly listed workbooks are imported; unrelated XLSX files in the directory are ignored. Do not hand-edit the generated data: update the workbooks and rerun the importer instead. If the source workbook schemas change, update the importer's header mappings as well.
+This regenerates `cards.js` and extracts formula images. Only the explicitly listed workbooks are imported; unrelated XLSX files in the directory are ignored. Do not hand-edit the generated data: update the workbooks and rerun the importer instead. `formula_latex.json` supplies the Chapter 7–9 typesetting transcriptions; review these too if the corresponding source equations change. See `FORMULA_AUDIT.md` for coverage and unresolved source-convention issues. If the source workbook schemas change, update the importer's header mappings as well.

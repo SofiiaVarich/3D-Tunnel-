@@ -95,7 +95,7 @@ details{margin-top:20px}summary{cursor:pointer;font-weight:600;padding:12px 0}
 <script>
 const T=window.QM_DATA.cards;
 function renderFormula(el,card,displayMode=false){
-  const latex=card.fields?.['LaTeX — Telegram']||card.fields?.LaTeX;
+  const latex=card.latex||card.fields?.['LaTeX — Telegram']||card.fields?.LaTeX;
   if(latex&&window.katex){
     try{
       katex.render(latex,el,{displayMode,throwOnError:true,strict:'ignore',trust:false});
@@ -201,13 +201,14 @@ function openT(t,rc,a,cls){
       if(latex)el.className='latex';
     };
     const fields=t.fields;
-    const formula=fields['LaTeX — Telegram']||fields.LaTeX||t.f;
+    const formula=t.latex||fields['LaTeX — Telegram']||fields.LaTeX||t.f;
     if(!t.image&&formula){
       add('h4','Formel / Kernaussage',answer);
       const el=add('div','',answer);el.className='formula-math';renderFormula(el,t,true);
       if(t.f)shown.add(t.f.trim());
     }
     show('Bedeutung',t.x);
+    show('Hinweis zur Formel',t.formulaNote);
     show('Anwendung',fields['How the law is used']);
     if(!formula&&!t.x&&!t.image)show('Definition',fields['Definition / explanation from script']);
   }else{add('p',t.x)}

@@ -11036,7 +11036,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 2
         }
-      ]
+      ],
+      "latex": "\\mathcal H=L^2(\\mathbb R)\\otimes\\mathbb C^2"
     },
     {
       "t": "Spin operator",
@@ -11059,7 +11060,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 3
         }
-      ]
+      ],
+      "latex": "S=\\frac{\\hbar}{2}\\sigma"
     },
     {
       "t": "Spin–position commutator",
@@ -11082,7 +11084,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 4
         }
-      ]
+      ],
+      "latex": "[S,X]=0"
     },
     {
       "t": "Spin–momentum commutator",
@@ -11105,7 +11108,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 5
         }
-      ]
+      ],
+      "latex": "[S,P]=0"
     },
     {
       "t": "Spin–orbital commutator",
@@ -11128,7 +11132,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 6
         }
-      ]
+      ],
+      "latex": "[S,L]=0"
     },
     {
       "t": "Spin commutation relations",
@@ -11151,7 +11156,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 7
         }
-      ]
+      ],
+      "latex": "[S_i,S_j]=i\\hbar\\sum_k\\varepsilon_{ijk}S_k"
     },
     {
       "t": "Total orbital and spin angular momentum",
@@ -11174,7 +11180,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 8
         }
-      ]
+      ],
+      "latex": "J=L+S"
     },
     {
       "t": "Total angular momentum of two spins",
@@ -11197,7 +11204,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 9
         }
-      ]
+      ],
+      "latex": "J=S^{(1)}+S^{(2)}"
     },
     {
       "t": "General angular momentum sum",
@@ -11220,7 +11228,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 10
         }
-      ]
+      ],
+      "latex": "J=J^{(1)}+J^{(2)}"
     },
     {
       "t": "Independent-subsystem commutator",
@@ -11243,7 +11252,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 11
         }
-      ]
+      ],
+      "latex": "[J^{(1)},J^{(2)}]=0"
     },
     {
       "t": "Total angular momentum commutator",
@@ -11266,7 +11276,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 12
         }
-      ]
+      ],
+      "latex": "[J_i,J_j]=i\\hbar\\sum_k\\varepsilon_{ijk}J_k"
     },
     {
       "t": "Uncoupled product basis",
@@ -11289,7 +11300,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 13
         }
-      ]
+      ],
+      "latex": "\\lvert j_1,m_1;j_2,m_2\\rangle=\\lvert j_1,m_1\\rangle\\otimes\\lvert j_2,m_2\\rangle"
     },
     {
       "t": "Uncoupled basis eigenvalues",
@@ -11312,7 +11324,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 14
         }
-      ]
+      ],
+      "latex": "\\hbar^2j_1(j_1+1),\\quad\\hbar m_1,\\quad\\hbar^2j_2(j_2+1),\\quad\\hbar m_2"
     },
     {
       "t": "Coupled observables",
@@ -11335,7 +11348,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 15
         }
-      ]
+      ],
+      "latex": "J^2,\\quad J_3,\\quad(J^{(1)})^2,\\quad(J^{(2)})^2"
     },
     {
       "t": "Two-spin total angular momentum",
@@ -11358,7 +11372,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 16
         }
-      ]
+      ],
+      "latex": "J=S^{(1)}+S^{(2)}"
     },
     {
       "t": "Two-spin computational basis",
@@ -11381,7 +11396,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 17
         }
-      ]
+      ],
+      "latex": "\\{\\lvert0,0\\rangle,\\lvert0,1\\rangle,\\lvert1,0\\rangle,\\lvert1,1\\rangle\\}"
     },
     {
       "t": "Total z-spin of |1,1⟩",
@@ -11404,7 +11420,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 18
         }
-      ]
+      ],
+      "latex": "J_3\\lvert1,1\\rangle=\\hbar\\lvert1,1\\rangle"
     },
     {
       "t": "Total z-spin of |0,0⟩",
@@ -11427,7 +11444,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 19
         }
-      ]
+      ],
+      "latex": "J_3\\lvert0,0\\rangle=-\\hbar\\lvert0,0\\rangle"
     },
     {
       "t": "Total spin squared identity",
@@ -11450,7 +11468,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 20
         }
-      ]
+      ],
+      "latex": "J^2=(S^{(1)})^2+(S^{(2)})^2+2S^{(1)}\\cdot S^{(2)}"
     },
     {
       "t": "Triplet highest-weight state",
@@ -11473,7 +11492,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 21
         }
-      ]
+      ],
+      "latex": "\\lvert1,1\\rangle_j=\\lvert1,1\\rangle"
     },
     {
       "t": "Triplet zero-m state",
@@ -11496,7 +11516,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 22
         }
-      ]
+      ],
+      "latex": "\\lvert1,0\\rangle_j=\\frac{\\lvert1,0\\rangle+\\lvert0,1\\rangle}{\\sqrt2}"
     },
     {
       "t": "Triplet lowest-weight state",
@@ -11519,7 +11540,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 23
         }
-      ]
+      ],
+      "latex": "\\lvert1,-1\\rangle_j=\\lvert0,0\\rangle"
     },
     {
       "t": "Singlet state",
@@ -11542,7 +11564,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 24
         }
-      ]
+      ],
+      "latex": "\\lvert0,0\\rangle_j=\\frac{\\lvert1,0\\rangle-\\lvert0,1\\rangle}{\\sqrt2}"
     },
     {
       "t": "Singlet eigenvalues",
@@ -11565,7 +11588,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 25
         }
-      ]
+      ],
+      "latex": "J_3\\lvert0,0\\rangle_j=0;\\quad J^2\\lvert0,0\\rangle_j=0"
     },
     {
       "t": "Triplet–singlet decomposition",
@@ -11588,7 +11612,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 26
         }
-      ]
+      ],
+      "latex": "2\\otimes2=3\\oplus1"
     },
     {
       "t": "Combined angular momentum space",
@@ -11611,7 +11636,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 27
         }
-      ]
+      ],
+      "latex": "\\dim\\mathcal H(j_1,j_2)=(2j_1+1)(2j_2+1)"
     },
     {
       "t": "Coupled basis notation",
@@ -11634,7 +11660,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 28
         }
-      ]
+      ],
+      "latex": "\\lvert j_1,j_2;j,m\\rangle_j"
     },
     {
       "t": "Total squared angular momentum eigenvalue",
@@ -11657,7 +11684,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 29
         }
-      ]
+      ],
+      "latex": "J^2\\lvert j_1,j_2;j,m\\rangle_j=\\hbar^2j(j+1)\\lvert j_1,j_2;j,m\\rangle_j"
     },
     {
       "t": "Total z-component eigenvalue",
@@ -11680,7 +11708,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 30
         }
-      ]
+      ],
+      "latex": "J_3\\lvert j_1,j_2;j,m\\rangle_j=\\hbar m\\lvert j_1,j_2;j,m\\rangle_j"
     },
     {
       "t": "Magnetic quantum number addition",
@@ -11703,7 +11732,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 31
         }
-      ]
+      ],
+      "latex": "m=m_1+m_2"
     },
     {
       "t": "Number of product states at fixed m",
@@ -11726,7 +11756,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 32
         }
-      ]
+      ],
+      "latex": "n(m)=\\text{number of }(m_1,m_2)\\text{ with }m_1+m_2=m"
     },
     {
       "t": "Magnetic quantum number range",
@@ -11749,7 +11780,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 33
         }
-      ]
+      ],
+      "latex": "m=-j,-j+1,\\ldots,j"
     },
     {
       "t": "Multiplicity counting identity",
@@ -11772,7 +11804,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 34
         }
-      ]
+      ],
+      "latex": "N(j)=n(j)-n(j+1)"
     },
     {
       "t": "Angular momentum triangle rule",
@@ -11795,7 +11828,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 35
         }
-      ]
+      ],
+      "latex": "j=\\lvert j_1-j_2\\rvert,\\lvert j_1-j_2\\rvert+1,\\ldots,j_1+j_2"
     },
     {
       "t": "Coupled multiplet",
@@ -11818,7 +11852,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 36
         }
-      ]
+      ],
+      "latex": "\\{\\lvert j_1,j_2;j,m\\rangle_j:m=-j,\\ldots,j\\}"
     },
     {
       "t": "Clebsch–Gordan coefficients",
@@ -11841,7 +11876,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 37
         }
-      ]
+      ],
+      "latex": "\\lvert j_1,j_2;j,m\\rangle_j=\\sum_{m_1+m_2=m}C(j_1,j_2,j,m_1,m_2,m)\\lvert j_1,m_1;j_2,m_2\\rangle"
     },
     {
       "t": "Clebsch–Gordan selection rule",
@@ -11864,7 +11900,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 38
         }
-      ]
+      ],
+      "latex": "m=m_1+m_2"
     },
     {
       "t": "Tensor-product representation",
@@ -11887,7 +11924,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 39
         }
-      ]
+      ],
+      "latex": "D^{(j_1)}\\otimes D^{(j_2)}=\\bigoplus_j D^{(j)}"
     },
     {
       "t": "Group closure",
@@ -11910,7 +11948,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 40
         }
-      ]
+      ],
+      "latex": "a,b\\in G\\implies a\\cdot b\\in G"
     },
     {
       "t": "Group associativity",
@@ -11933,7 +11972,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 41
         }
-      ]
+      ],
+      "latex": "(a\\cdot b)\\cdot c=a\\cdot(b\\cdot c)"
     },
     {
       "t": "Group identity",
@@ -11956,7 +11996,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 42
         }
-      ]
+      ],
+      "latex": "a\\cdot e=e\\cdot a=a"
     },
     {
       "t": "Group inverse",
@@ -11979,7 +12020,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 43
         }
-      ]
+      ],
+      "latex": "a\\cdot b=b\\cdot a=e"
     },
     {
       "t": "Group representation",
@@ -12002,7 +12044,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 44
         }
-      ]
+      ],
+      "latex": "V:G\\longrightarrow\\operatorname{GL}(n,\\mathbb R)"
     },
     {
       "t": "Irreducible representation",
@@ -12048,7 +12091,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 46
         }
-      ]
+      ],
+      "latex": "J=L+S"
     },
     {
       "t": "Spin–orbit uncoupled basis",
@@ -12071,7 +12115,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 47
         }
-      ]
+      ],
+      "latex": "\\{\\lvert l,m_l\\rangle\\lvert0\\rangle,\\lvert l,m_l\\rangle\\lvert1\\rangle\\}"
     },
     {
       "t": "Spin–orbit total j values",
@@ -12094,7 +12139,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 48
         }
-      ]
+      ],
+      "latex": "j=l+\\tfrac12,\\quad l-\\tfrac12"
     },
     {
       "t": "Charged-particle Hamiltonian",
@@ -12117,7 +12163,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 2
         }
-      ]
+      ],
+      "latex": "H=\\frac{(P-eA/c)^2}{2m}+e\\Phi"
     },
     {
       "t": "Position-space Schrödinger equation",
@@ -12140,7 +12187,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 3
         }
-      ]
+      ],
+      "latex": "i\\hbar\\frac{\\partial\\psi}{\\partial t}=\\left[\\frac{(-i\\hbar\\nabla-eA/c)^2}{2m}+e\\Phi\\right]\\psi"
     },
     {
       "t": "Coulomb gauge",
@@ -12163,7 +12211,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 4
         }
-      ]
+      ],
+      "latex": "\\nabla\\cdot A=0"
     },
     {
       "t": "Expanded Hamiltonian in Coulomb gauge",
@@ -12186,7 +12235,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 5
         }
-      ]
+      ],
+      "latex": "\\begin{aligned}i\\hbar\\partial_t\\psi={}&-\\frac{\\hbar^2}{2m}\\nabla^2\\psi+\\frac{i\\hbar e}{mc}A\\cdot\\nabla\\psi\\\\&+\\frac{e^2 A^2}{2mc^2}\\psi+e\\Phi\\psi\\end{aligned}"
     },
     {
       "t": "Vector potential",
@@ -12209,7 +12259,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 6
         }
-      ]
+      ],
+      "latex": "B=\\nabla\\times A"
     },
     {
       "t": "Scalar potential",
@@ -12232,7 +12283,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 7
         }
-      ]
+      ],
+      "latex": "e\\Phi"
     },
     {
       "t": "Uniform-field vector potential",
@@ -12255,7 +12307,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 8
         }
-      ]
+      ],
+      "latex": "A=-\\frac12(x\\times B)"
     },
     {
       "t": "Orbital magnetic coupling",
@@ -12278,7 +12331,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 9
         }
-      ]
+      ],
+      "latex": "-\\frac{e}{2mc}L\\cdot B"
     },
     {
       "t": "Diamagnetic contribution",
@@ -12301,7 +12355,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 10
         }
-      ]
+      ],
+      "latex": "\\frac{e^2}{8mc^2}\\left[x^2B^2-(x\\cdot B)^2\\right]"
     },
     {
       "t": "Paramagnetic term",
@@ -12324,7 +12379,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 11
         }
-      ]
+      ],
+      "latex": "\\propto L\\cdot B"
     },
     {
       "t": "Diamagnetic term",
@@ -12347,7 +12403,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 12
         }
-      ]
+      ],
+      "latex": "\\propto B^2"
     },
     {
       "t": "Normal Zeeman Hamiltonian",
@@ -12370,7 +12427,9 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 13
         }
-      ]
+      ],
+      "latex": "H=H^{(0)}+\\frac{eB}{2mc}L_3",
+      "formulaNote": "Convention check: this source uses +eBL₃/(2mc), while the orbital coupling uses −eL·B/(2mc). With the same signed charge e and B along +z these signs disagree. Original PDF needed; formula preserved as supplied."
     },
     {
       "t": "Normal Zeeman energy levels",
@@ -12393,7 +12452,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 14
         }
-      ]
+      ],
+      "latex": "E_{nlm}=-\\frac{me_0^4}{2\\hbar^2n^2}+\\hbar\\omega_L m"
     },
     {
       "t": "Larmor frequency",
@@ -12416,7 +12476,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 15
         }
-      ]
+      ],
+      "latex": "\\omega_L=-\\frac{eB}{2mc}=\\frac{e_0B}{2mc}"
     },
     {
       "t": "Zeeman splitting multiplicity",
@@ -12439,7 +12500,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 16
         }
-      ]
+      ],
+      "latex": "2l+1\\quad\\text{equally spaced levels}"
     },
     {
       "t": "Magnetic quantum number",
@@ -12462,7 +12524,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 17
         }
-      ]
+      ],
+      "latex": "m=-l,-l+1,\\ldots,l"
     },
     {
       "t": "Total angular momentum",
@@ -12485,7 +12548,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 18
         }
-      ]
+      ],
+      "latex": "J=L+S"
     },
     {
       "t": "Spin-inclusive magnetic Hamiltonian",
@@ -12508,7 +12572,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 19
         }
-      ]
+      ],
+      "latex": "H=H^{(0)}-\\frac{e}{2mc}(L+gS)\\cdot B"
     },
     {
       "t": "Electron g factor",
@@ -12531,7 +12596,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 20
         }
-      ]
+      ],
+      "latex": "g\\approx2.002319304718"
     },
     {
       "t": "Anomalous Zeeman effect",
@@ -12577,7 +12643,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 22
         }
-      ]
+      ],
+      "latex": "L\\text{ and }S\\text{ couple};\\quad J=L+S"
     },
     {
       "t": "Aharonov–Bohm effect",
@@ -12600,7 +12667,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 23
         }
-      ]
+      ],
+      "latex": "B(x)=0\\quad\\text{along the particle paths, but }A\\text{ can affect interference}"
     },
     {
       "t": "Gauge invariance",
@@ -12646,7 +12714,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 25
         }
-      ]
+      ],
+      "latex": "B(x)=0"
     },
     {
       "t": "Superconducting flux quantization",
@@ -12669,7 +12738,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 26
         }
-      ]
+      ],
+      "latex": "\\Phi=n\\Phi_0"
     },
     {
       "t": "Single-valued superconducting phase",
@@ -12692,7 +12762,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 27
         }
-      ]
+      ],
+      "latex": "\\Delta\\text{phase}=2\\pi n"
     },
     {
       "t": "Cooper pairs",
@@ -12738,7 +12809,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 29
         }
-      ]
+      ],
+      "latex": "\\Phi_0"
     },
     {
       "t": "Cyclotron frequency",
@@ -12761,7 +12833,9 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 30
         }
-      ]
+      ],
+      "latex": "\\omega_c=\\frac{eB}{m}",
+      "formulaNote": "Unit/sign check: the source gives ωc = eB/m (SI form), while earlier formulas contain Gaussian-unit factors of c. The positive cyclotron frequency is |q|B/m in SI or |q|B/(mc) in Gaussian units. Original PDF needed; formula preserved as supplied."
     },
     {
       "t": "Landau levels",
@@ -12784,7 +12858,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 31
         }
-      ]
+      ],
+      "latex": "E_n=\\hbar\\omega\\left(n+\\frac12\\right),\\quad n=0,1,2,\\ldots"
     },
     {
       "t": "Magnetic circular motion",
@@ -12991,7 +13066,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 9
         }
-      ]
+      ],
+      "latex": "P(a_1,b_2\\mid A_1,B_2)"
     },
     {
       "t": "Correlation table",
@@ -13014,7 +13090,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 10
         }
-      ]
+      ],
+      "latex": "\\{P(a,b\\mid A,B)\\}\\quad\\text{over all settings and outcomes}"
     },
     {
       "t": "Two-setting, two-outcome scenario",
@@ -13037,7 +13114,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 11
         }
-      ]
+      ],
+      "latex": "\\begin{gathered}A\\in\\{A_1,A_2\\},\\quad B\\in\\{B_1,B_2\\};\\\\a,b\\in\\{-1,+1\\}\\end{gathered}"
     },
     {
       "t": "Nonnegative probabilities",
@@ -13060,7 +13138,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 12
         }
-      ]
+      ],
+      "latex": "P(a,b\\mid A,B)\\ge0"
     },
     {
       "t": "Probability normalization",
@@ -13083,7 +13162,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 13
         }
-      ]
+      ],
+      "latex": "\\sum_{a,b=\\pm1}P(a,b\\mid A,B)=1"
     },
     {
       "t": "Alice’s marginal probability",
@@ -13106,7 +13186,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 14
         }
-      ]
+      ],
+      "latex": "P(a\\mid A,B):=\\sum_{b=\\pm1}P(a,b\\mid A,B)"
     },
     {
       "t": "No-signalling condition",
@@ -13129,7 +13210,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 15
         }
-      ]
+      ],
+      "latex": "\\sum_b P(a,b\\mid A,B)=P(a\\mid A),\\quad\\text{independent of }B"
     },
     {
       "t": "Relativistic motivation for no-signalling",
@@ -13175,7 +13257,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 17
         }
-      ]
+      ],
+      "latex": "\\lambda\\in\\Lambda"
     },
     {
       "t": "Local response probability",
@@ -13198,7 +13281,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 18
         }
-      ]
+      ],
+      "latex": "\\chi_A(a,\\lambda)"
     },
     {
       "t": "Hidden-variable distribution",
@@ -13221,7 +13305,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 19
         }
-      ]
+      ],
+      "latex": "f(\\lambda),\\quad\\text{a probability distribution over }\\Lambda"
     },
     {
       "t": "Local hidden-variable factorization",
@@ -13244,7 +13329,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 20
         }
-      ]
+      ],
+      "latex": "P(a,b\\mid A,B)=\\int d\\lambda\\,f(\\lambda)\\chi_A(a,\\lambda)\\chi_B(b,\\lambda)"
     },
     {
       "t": "Probabilistic local hidden-variable model",
@@ -13290,7 +13376,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 22
         }
-      ]
+      ],
+      "latex": "\\hat a(\\lambda):=\\chi_A(+1,\\lambda)-\\chi_A(-1,\\lambda)"
     },
     {
       "t": "Conditional mean bounds",
@@ -13313,7 +13400,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 23
         }
-      ]
+      ],
+      "latex": "-1\\le\\hat a(\\lambda),\\hat b(\\lambda)\\le1"
     },
     {
       "t": "Normalized CHSH expression",
@@ -13336,7 +13424,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 24
         }
-      ]
+      ],
+      "latex": "B(\\lambda):=\\frac12\\left[\\hat a_1(\\hat b_1+\\hat b_2)+\\hat a_2(\\hat b_1-\\hat b_2)\\right]"
     },
     {
       "t": "Pointwise local bound",
@@ -13359,7 +13448,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 25
         }
-      ]
+      ],
+      "latex": "\\lvert B(\\lambda)\\rvert\\le1"
     },
     {
       "t": "Extremal contradiction",
@@ -13382,7 +13472,9 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 26
         }
-      ]
+      ],
+      "latex": "\\hat a_1=\\hat b_1=\\hat b_2=\\hat a_2=-\\hat b_2\\quad\\text{is impossible}",
+      "formulaNote": "This contradiction requires extremal response means ±1. The equality chain alone is satisfied when all means are zero; it is not a contradiction for arbitrary stochastic means."
     },
     {
       "t": "Averaged CHSH parameter",
@@ -13405,7 +13497,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 27
         }
-      ]
+      ],
+      "latex": "\\beta:=\\int d\\lambda\\,f(\\lambda)B(\\lambda)"
     },
     {
       "t": "Normalized Bell bound",
@@ -13428,7 +13521,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 28
         }
-      ]
+      ],
+      "latex": "\\lvert\\beta\\rvert\\le1"
     },
     {
       "t": "Two-party correlator",
@@ -13451,7 +13545,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 29
         }
-      ]
+      ],
+      "latex": "E(A,B):=\\sum_{a,b=\\pm1}ab\\,P(a,b\\mid A,B)"
     },
     {
       "t": "Standard CHSH inequality",
@@ -13474,7 +13569,8 @@ window.QM_DATA = {
           "sheet": "Learning Cards",
           "row": 30
         }
-      ]
+      ],
+      "latex": "\\left|E(A_1,B_1)+E(A_1,B_2)+E(A_2,B_1)-E(A_2,B_2)\\right|\\le2"
     },
     {
       "t": "Source CHSH bound typo",
