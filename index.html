@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>QuantumMechanicsFU</title>
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<script src="assets/katex/katex.min.js"></script>
+<style>
+:root{--ink:#0b0b0e;--paper:#f4f4f1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:#000;overflow:hidden;font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;color:#fff}
+#stage{position:fixed;inset:0;perspective:900px;perspective-origin:50% 50%;overflow:hidden;cursor:grab;touch-action:none;background:radial-gradient(circle at 50% 50%,#000 0,#050507 40%,#111 100%)}
+#stage.drag{cursor:grabbing}
+#tilt,#spin,.ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.card{position:absolute;left:-129px;top:-98px;width:258px;height:196px;transform-style:preserve-3d;cursor:pointer}
+.face{position:absolute;inset:0;border-radius:6px;padding:14px 16px;overflow:hidden;border:2px solid rgba(0,0,0,.25);transition:transform .25s ease,border-color .2s,box-shadow .2s;backface-visibility:hidden}
+.card:hover .face{transform:translateZ(46px);border-color:#fff;box-shadow:0 0 36px rgba(255,255,255,.55)}
+.face h3{margin:0;font-size:28px;line-height:1.05;font-weight:700;letter-spacing:-.5px}
+.face .f{display:block;margin-top:8px;font:italic 17px Georgia,serif;opacity:.85}
+.face .deco{position:absolute;left:0;right:0;bottom:0;height:46%;opacity:.9;background:linear-gradient(180deg,rgba(130,90,255,.9),rgba(130,90,255,.15));clip-path:polygon(0 100%,0 80%,15% 70%,30% 35%,45% 8%,60% 35%,75% 72%,100% 80%,100% 100%)}
+.c-lime{background:#d9ff5a;color:#111}.c-white{background:#f4f4f1;color:#111}.c-black{background:#0d0d12;color:#fff}.c-black .face,.c-black.panel{border-color:#333}
+.c-mag{background:#ff4fe0;color:#111}.c-orange{background:#ff4a0e;color:#fff}.c-yellow{background:#fff22a;color:#111}.c-violet{background:#cdb8ff;color:#111}
+.c-orange .deco{background:linear-gradient(180deg,rgba(255,255,255,.6),rgba(255,255,255,.05))}
+#hole{position:fixed;left:50%;top:50%;width:min(11vmin,110px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#000 56%,rgba(200,225,255,.95) 62%,rgba(140,110,255,.45) 70%,transparent 82%);filter:drop-shadow(0 0 14px rgba(150,180,255,.6));pointer-events:none;display:grid;place-items:center}
+#hole svg{width:44%;filter:drop-shadow(0 0 6px #9fd0ff)}
+nav{position:fixed;left:0;right:0;top:0;height:72px;padding:0 clamp(16px,6vw,86px);display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.93);color:#111;z-index:5;padding-top:env(safe-area-inset-top,0px)}
+.logo{display:flex;align-items:center;gap:12px;font-size:19px;font-weight:600}
+.logo i{width:38px;height:38px;border-radius:50%;background:#111;display:block;position:relative;overflow:hidden}
+.logo i:after{content:"";position:absolute;left:8px;top:6px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:inset -7px -3px 0 #111}
+nav ul{display:flex;gap:44px;list-style:none;margin:0;padding:0;font-weight:500;font-size:18px}
+nav a,nav button{cursor:pointer}
+nav a:hover{opacity:.6}
+.pill{border:0;border-radius:99px;padding:14px 26px;font:600 17px "Segoe UI",system-ui,sans-serif;cursor:pointer}
+.pill.dark{background:#111;color:#fff}.pill.light{background:#fff;color:#111}
+#hero{position:fixed;left:50%;top:50%;transform:translate(-50%,-52%);text-align:center;z-index:3;pointer-events:none;width:min(94vw,900px)}
+#hero h1{margin:0;font-size:clamp(34px,8vw,84px);font-weight:500;letter-spacing:-1.5px;text-shadow:0 2px 30px #000}
+#hero p{margin:10px 0 30px;font-size:clamp(15px,2.4vw,24px);text-shadow:0 2px 20px #000}
+#hero .pill{pointer-events:auto}
+#hint{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;z-index:3;font-size:13px;letter-spacing:.4px;color:#ddd;text-shadow:0 1px 8px #000;pointer-events:none}
+#hint b{display:block;font-size:26px;line-height:1;margin-bottom:4px}
+.panel{position:fixed;z-index:20;border-radius:10px;overflow:hidden;border:2px solid rgba(0,0,0,.2);box-shadow:0 30px 100px rgba(0,0,0,.7);transition:all .8s cubic-bezier(.2,.8,.2,1)}
+.panel .in{padding:clamp(18px,4vw,44px);height:100%;overflow:auto;opacity:0;transition:opacity .4s}
+.panel.shown .in{opacity:1}
+.panel small{letter-spacing:2px;text-transform:uppercase;opacity:.7;font-weight:600}
+.panel h2{margin:6px 0 4px;font-size:clamp(30px,6vw,56px);letter-spacing:-1px;line-height:1}
+.panel .fm{font:italic clamp(20px,3vw,30px) Georgia,serif;margin:8px 0 16px}
+.panel p{font-size:clamp(15px,2vw,18px);line-height:1.55;max-width:60ch;margin:8px 0}
+.panel h4{margin:22px 0 4px;font-size:15px;text-transform:uppercase;letter-spacing:1.5px}
+.opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.opts button{font:600 16px "Segoe UI",system-ui,sans-serif;padding:12px 18px;border-radius:10px;border:2px solid currentColor;background:transparent;color:inherit;cursor:pointer}
+.opts button:hover{background:rgba(128,128,128,.25)}
+.opts button.ok{background:#1db954;border-color:#1db954;color:#fff}
+.opts button.no{background:#e5342d;border-color:#e5342d;color:#fff}
+.x{position:absolute;right:14px;top:14px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(128,128,128,.35);color:inherit;font-size:18px;cursor:pointer}
+.esc{position:absolute;right:62px;top:24px;font-size:12px;opacity:.6}
+nav ul button{border:0;background:transparent;color:inherit;font:inherit;padding:0}
+nav ul button:hover{opacity:.6}
+:focus-visible{outline:3px solid #7950f2;outline-offset:4px}
+@media(max-width:760px){
+  nav{height:auto;min-height:100px;flex-wrap:wrap;gap:12px;padding:12px 16px;padding-top:calc(12px + env(safe-area-inset-top,0px))}
+  .logo{font-size:16px;gap:8px}
+  .logo i{width:30px;height:30px;flex-shrink:0}
+  nav ul{order:3;width:100%;justify-content:center;gap:32px;font-size:16px}
+  nav .pill{padding:10px 14px;font-size:14px}
+  #hero h1{font-size:clamp(24px,6.8vw,52px);letter-spacing:-1px}
+  #hint{padding:0 16px;font-size:11px}
+  .panel h2{overflow-wrap:anywhere;padding-right:28px}
+  .panel .fm{overflow-wrap:anywhere}
+}
+details{margin-top:20px}summary{cursor:pointer;font-weight:600;padding:12px 0}
+.panel p{white-space:pre-wrap;overflow-wrap:anywhere}.panel h4{overflow-wrap:anywhere}
+.latex{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;padding:12px;background:rgba(128,128,128,.15);border-radius:6px}
+.formula-image{display:block;max-width:100%;height:auto;margin:18px 0;background:white;padding:12px;border-radius:6px}
+.face h3{font-size:22px;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.face .f{font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.formula-math{overflow-x:auto;overflow-y:hidden;padding:12px 2px;font-size:1.15rem;white-space:pre-wrap}
+.formula-math .katex-display{margin:.5em 0;text-align:left}
+.face .f.typeset{display:block;font-style:normal;font-size:14px;max-height:62px}
+.face .f img{display:block;max-width:100%;max-height:62px;object-fit:contain;background:#fff;border-radius:3px;padding:4px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><i></i>QuantumMechanicsFU</div>
+  <ul><li><button id="n1" type="button">Kurs</button></li><li><button id="n2" type="button">Übungen</button></li><li><button id="n3" type="button">Über</button></li></ul>
+  <button class="pill dark" id="quiz">Karte lernen →</button>
+</nav>
+<div id="stage"><div id="tilt"><div id="spin"></div></div></div>
+<div id="hole"><svg viewBox="0 0 100 50"><path d="M50 25C40 8 12 8 12 25s28 17 38 0 38-17 38 0-28 17-38 0z" fill="none" stroke="#dff0ff" stroke-width="4"/></svg></div>
+<div id="hero"><h1>QuantumMechanicsFU</h1><p>Lernkarten und Formeln aus deinen Kurstabellen</p><button class="pill light" id="dive">Kurs erkunden →</button></div>
+<div id="hint"><b>⌄</b>Scrollen · Ziehen · Karte anklicken · Esc zum Zurückkehren</div>
+<script src="cards.js"></script>
+<script>
+const T=window.QM_DATA.cards;
+function renderFormula(el,card,displayMode=false){
+  const latex=card.fields?.['LaTeX — Telegram']||card.fields?.LaTeX;
+  if(latex&&window.katex){
+    try{
+      katex.render(latex,el,{displayMode,throwOnError:true,strict:'ignore',trust:false});
+      el.classList.add('typeset');return;
+    }catch(error){console.warn('Formula rendering failed:',card.t,error)}
+  }
+  el.textContent=card.f||latex||'';
+}
+const ST=['lime','white','black','mag','white','orange','yellow','violet','black','white'];
+const R=420,N=10,RINGS=30,S=200,L=S*RINGS;
+const stage=document.getElementById('stage'),spin=document.getElementById('spin'),tilt=document.getElementById('tilt');
+const rings=[];
+for(let i=0;i<RINGS;i++){
+  const r=document.createElement('div');r.className='ring';r.lap=null;
+  for(let j=0;j<N;j++){
+    const a=j*360/N+(i%2)*180/N;
+    const d=document.createElement('div');d.className='card';
+    d.style.transform=`rotateZ(${a}deg) translateY(${-R}px) rotateX(-90deg)`;
+    d.innerHTML='<div class="face"><h3></h3><span class="f"></span><i class="deco"></i></div>';
+    r.appendChild(d);
+  }
+  spin.appendChild(r);rings.push(r);
+}
+/* endless: every time a ring wraps around it gets brand-new cards, derived from its absolute index n */
+function fill(r,n){
+  [...r.children].forEach((d,j)=>{
+    const h=(Math.imul(n,73856093)^Math.imul(j+7,19349663))>>>0;
+    const ti=h%T.length,c=ST[(h>>>9)%ST.length];
+    d.dataset.t=ti;d.dataset.c=c;
+    const f=d.firstChild;f.className='face c-'+c;
+    f.children[0].textContent=T[ti].t.replace(/\u00AD/g,'');
+        const preview=f.children[1];preview.classList.remove('typeset');
+        if(T[ti].image){
+          preview.replaceChildren();const img=document.createElement('img');img.src=T[ti].image;img.alt=T[ti].t;img.loading='lazy';preview.appendChild(img);
+        }else{renderFormula(preview,T[ti])}
+  });
+}
+let cam=0,vel=0,rot=0,dragVel=0,slow=1,hov=false,isOpen=false;
+let tx=0,ty=0,tvx=0,tvy=0,mx=0,my=0,last=performance.now();
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),mod=(a,n)=>((a%n)+n)%n;
+function frame(now){
+  const dt=Math.min(.05,(now-last)/1000);last=now;
+  if(!isOpen){
+    slow+=((hov?.25:1)-slow)*Math.min(1,dt*8);
+    cam+=(vel+40)*slow*dt;
+    rot+=((vel*.01+2.5)*slow+dragVel*(dragging?0:1))*dt;
+    if(!dragging){dragVel*=Math.exp(-dt*2.2)}
+    vel*=Math.exp(-dt*2.5);
+    tvx+=((mx*7-tx)*60-tvx*9)*dt;tx+=tvx*dt;
+    tvy+=((-my*6-ty)*60-tvy*9)*dt;ty+=tvy*dt;
+    tilt.style.transform=`rotateX(${ty}deg) rotateY(${tx}deg)`;
+    spin.style.transform=`rotateZ(${rot}deg)`;
+    for(let i=0;i<RINGS;i++){
+      const u=i*S-cam+650,lap=Math.floor(u/L),d=u-lap*L-650;
+      if(rings[i].lap!==lap){rings[i].lap=lap;fill(rings[i],i-lap*RINGS)}
+      const o=Math.min(1,(d+650)/250)*(1-Math.pow(Math.max(0,d)/L,4));
+      const e=rings[i].style;
+      e.transform=`translateZ(${-d}px)`;e.opacity=o.toFixed(3);e.pointerEvents=o<.25?'none':'auto';
+    }
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+addEventListener('wheel',e=>{if(isOpen)return;vel=clamp(vel+e.deltaY*3,-3500,3500)},{passive:true});
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth*2-1;my=e.clientY/innerHeight*2-1;
+  if(dragging){const a=ang(e);let da=a-lastA;if(da>180)da-=360;if(da<-180)da+=360;lastA=a;rot+=da;
+    dragVel=dragVel*.6+(da/Math.max(.001,(e.timeStamp-lastT)/1000))*.4;lastT=e.timeStamp;
+    if(e.pointerType==='touch')vel+=-(e.movementY||0)*-10;
+    moved+=Math.abs(e.movementX)+Math.abs(e.movementY)}});
+let dragging=false,lastA=0,lastT=0,moved=0;
+const ang=e=>Math.atan2(e.clientY-innerHeight/2,e.clientX-innerWidth/2)*180/Math.PI;
+stage.addEventListener('pointerdown',e=>{if(isOpen)return;dragging=true;moved=0;lastA=ang(e);lastT=e.timeStamp;dragVel=0;stage.classList.add('drag')});
+addEventListener('pointerup',()=>{dragging=false;stage.classList.remove('drag');dragVel=clamp(dragVel,-400,400)});
+stage.addEventListener('pointerover',e=>{if(e.target.closest('.card'))hov=true});
+stage.addEventListener('pointerout',e=>{if(e.target.closest('.card'))hov=false});
+stage.addEventListener('click',e=>{
+  const c=e.target.closest('.card');if(!c||moved>6)return;
+  const rc=c.querySelector('.face').getBoundingClientRect();
+  const cx=rc.left+rc.width/2,cy=rc.top+rc.height/2;
+  const a=Math.atan2(cy-innerHeight/2,cx-innerWidth/2)*180/Math.PI+90;
+  openT(T[+c.dataset.t],rc,a,'c-'+c.dataset.c);
+});
+let panel=null,from=null;
+function openT(t,rc,a,cls){
+  if(isOpen)return;isOpen=true;hov=false;
+  const p=document.createElement('div');p.className='panel '+cls;
+  p.setAttribute('role','dialog');p.setAttribute('aria-modal','true');
+  p.setAttribute('aria-label',t.t);
+  p.innerHTML='<button class="x" aria-label="Schließen">✕</button><span class="esc">Esc</span><div class="in"></div>';
+  const content=p.querySelector('.in');
+  const add=(tag,text,parent=content)=>{const el=document.createElement(tag);el.textContent=text;parent.appendChild(el);return el};
+  add('small',t.chapter?'Kapitel '+t.chapter:'Information');
+  add('h2',t.t);
+  if(t.fields){
+    const answer=document.createElement('details');content.appendChild(answer);
+    add('summary','Antwort anzeigen',answer);
+    if(t.image){const img=document.createElement('img');img.src=t.image;img.alt='Formel: '+t.t;img.className='formula-image';answer.appendChild(img)}
+    const shown=new Set();
+    const show=(heading,value,latex=false)=>{
+      if(!value||shown.has(value.trim()))return;
+      shown.add(value.trim());add('h4',heading,answer);
+      const el=add(latex?'pre':'p',value,answer);
+      if(latex)el.className='latex';
+    };
+    const fields=t.fields;
+    const formula=fields['LaTeX — Telegram']||fields.LaTeX||t.f;
+    if(!t.image&&formula){
+      add('h4','Formel / Kernaussage',answer);
+      const el=add('div','',answer);el.className='formula-math';renderFormula(el,t,true);
+      if(t.f)shown.add(t.f.trim());
+    }
+    show('Bedeutung',t.x);
+    show('Anwendung',fields['How the law is used']);
+    if(!formula&&!t.x&&!t.image)show('Definition',fields['Definition / explanation from script']);
+  }else{add('p',t.x)}
+
+  from={left:rc.left,top:rc.top,width:rc.width,height:rc.height,a};
+  Object.assign(p.style,{left:rc.left+'px',top:rc.top+'px',width:rc.width+'px',height:rc.height+'px',transform:`rotate(${a}deg)`});
+  document.body.appendChild(p);panel=p;p.offsetWidth;
+  const W=Math.min(innerWidth*.92,860),H=Math.min(innerHeight*.84,620);
+  Object.assign(p.style,{left:(innerWidth-W)/2+'px',top:(innerHeight-H)/2+'px',width:W+'px',height:H+'px',transform:'rotate(0deg)'});
+  setTimeout(()=>p.classList.add('shown'),450);
+  p.querySelector('.x').onclick=closeT;
+
+}
+function closeT(){
+  if(!panel)return;const p=panel;panel=null;p.classList.remove('shown');
+  Object.assign(p.style,{left:from.left+'px',top:from.top+'px',width:from.width+'px',height:from.height+'px',transform:`rotate(${from.a}deg)`,opacity:0});
+  setTimeout(()=>{p.remove();isOpen=false},800);
+}
+addEventListener('keydown',e=>{if(e.key==='Escape')closeT()});
+const mid={left:innerWidth/2-100,top:innerHeight/2-70,width:200,height:140,a:0};
+const rnd=()=>{const i=Math.floor(Math.random()*T.length);return[T[i],'c-'+ST[i%ST.length]]};
+const dive=()=>{vel=3000};
+document.getElementById('dive').onclick=dive;document.getElementById('n1').onclick=dive;
+document.getElementById('quiz').onclick=document.getElementById('n2').onclick=()=>{const[t,c]=rnd();openT(t,{left:innerWidth/2-100,top:innerHeight/2-70,width:200,height:140},0,c)};
+document.getElementById('n3').onclick=()=>openT({t:'Über',f:'iħ ∂ψ/∂t = Hψ',x:'QuantumMechanicsFU enthält '+T.length+' Lernkarten aus den bereitgestellten Kurstabellen. Klicke eine Karte an, erinnere dich an die Antwort und öffne dann die Definitionen, Formeln und Quellen. Übungen öffnet eine zufällige Karte. Die Inhalte bleiben in der Originalsprache der Tabellen.',q:'Bereit? Klicke eine Karte im Tunnel an.',o:['Ja!'],a:0},{left:innerWidth/2-100,top:innerHeight/2-70,width:200,height:140},0,'c-white');
+</script>
+</body>
+</html>
