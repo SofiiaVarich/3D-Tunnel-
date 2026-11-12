@@ -1,4 +1,13 @@
 # Quantum Atlas — 3D Tunnel
+<div align="center">
+
+🌀 **Explore · Experiment · Learn** 🌀
+
+![Animated project banner](https://readme-typing-svg.demolab.com?font=Fira+Code&size=19&pause=1100&color=8B5CF6&center=true&vCenter=true&width=620&lines=3D%20Tunnel;Built%20with%20curiosity%20and%20code)
+
+</div>
+
+
 
 An interactive quantum mechanics flashcard tunnel built with HTML, CSS 3D transforms, and vanilla JavaScript. No installation, build step, CDN, or network connection is required. KaTeX 0.16.22 is bundled locally for mathematical typesetting (MIT license in `assets/katex/LICENSE`).
 
