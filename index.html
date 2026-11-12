@@ -79,6 +79,7 @@ details{margin-top:20px}summary{cursor:pointer;font-weight:600;padding:12px 0}
 .formula-math .katex-display{margin:.5em 0;text-align:left}
 .face .f.typeset{display:block;font-style:normal;font-size:14px;max-height:62px}
 .face .f img{display:block;max-width:100%;max-height:62px;object-fit:contain;background:#fff;border-radius:3px;padding:4px}
+#deck-controls{position:fixed;top:calc(82px + env(safe-area-inset-top,0px));left:clamp(12px,4vw,60px);z-index:7;background:rgba(16,16,23,.92);border:1px solid #555;border-radius:12px;padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;max-width:min(95vw,900px);font-size:13px}#deck-select{background:#fff;color:#111;border-radius:6px;padding:9px;max-width:min(68vw,460px);font:inherit}#deck-count{color:#ddd}@media(max-width:760px){#deck-controls{top:calc(112px + env(safe-area-inset-top,0px));left:10px;right:10px}#deck-select{max-width:75vw}}
 </style>
 </head>
 <body>
@@ -90,11 +91,18 @@ details{margin-top:20px}summary{cursor:pointer;font-weight:600;padding:12px 0}
 <div id="stage"><div id="tilt"><div id="spin"></div></div></div>
 <div id="hole"><svg viewBox="0 0 100 50"><path d="M50 25C40 8 12 8 12 25s28 17 38 0 38-17 38 0-28 17-38 0z" fill="none" stroke="#dff0ff" stroke-width="4"/></svg></div>
 <div id="hero"><h1>Quantum Atlas</h1><p>Lernkarten und Formeln aus deinen Kurstabellen</p><button class="pill light" id="dive">Kurs erkunden →</button></div>
-<div id="hint"><b>⌄</b>Scrollen · Ziehen · Karte anklicken · Esc zum Zurückkehren</div>
+<div id="deck-controls" aria-label="Lernkarten nach Vorlesungsthema filtern"><label for="deck-select">Vorlesung / Thema</label><select id="deck-select"><option value="all">Alle Lernkarten</option><option value="franke">Franke · Alle Themen</option><option value="0">Franke 1: Schwarzkörperstrahlung · 03.11.2026</option><option value="1">Franke 2: Stefan–Boltzmann-Gesetz · 05.11.2026</option><option value="2">Franke 3: Photoeffekt · 10.11.2026</option><option value="3">Franke 4: Compton-Effekt · 10.11.2026</option><option value="4">Franke 5: Elektronenbeugung · 12.11.2026</option><option value="5">Franke 6: Statistische Deutung der Wellenfunktion · 17.11.2026</option><option value="6">Franke 7: Atommodelle · Termin offen</option><option value="7">Franke 8: Balmer-Serie · Termin offen</option><option value="8">Franke 9: Franck–Hertz-Versuch · Termin offen</option><option value="9">Franke 10: Spin–Bahn-Kopplung · Termin offen</option></select><span id="deck-count">Alle Karten</span></div><div id="hint"><b>⌄</b>Scrollen · Ziehen · Karte anklicken · Esc zum Zurückkehren</div>
 <script src="cards.js"></script>
 <script src="lecture_slide_cards.js"></script>
 <script>
 const T=window.QM_DATA.cards;
+/* Franke lecture topics: separate topic decks, preserving original cards. */
+const frankeTopics=[["Schwarzkörperstrahlung","03.11.2026"],["Stefan–Boltzmann-Gesetz","05.11.2026"],["Photoeffekt","10.11.2026"],["Compton-Effekt","10.11.2026"],["Elektronenbeugung","12.11.2026"],["Statistische Deutung der Wellenfunktion","17.11.2026"],["Atommodelle","Termin offen"],["Balmer-Serie","Termin offen"],["Franck–Hertz-Versuch","Termin offen"],["Spin–Bahn-Kopplung","Termin offen"]];
+const frankeBaseMap=[0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,3,3,3,4,4,4,4,5,5,5,5,5,7,7,6,6,6,8,9,9,9,9];
+let frankeBase=0;for(const card of T){if(card.chapter==='Experimental – Franke'){let topic;if(card.id&&card.id.startsWith('PHOTO-ELECTRON-')){const num=Number(card.id.slice(-2));topic=num<=6?0:4;}else{topic=frankeBaseMap[frankeBase++]??0;}card.frankeTopic=topic;card.frankeDate=frankeTopics[topic][1];}}
+let activeDeck=T;
+function selectDeck(value){activeDeck=value==='all'?T:value==='franke'?T.filter(c=>Number.isInteger(c.frankeTopic)):T.filter(c=>c.frankeTopic===Number(value));if(!activeDeck.length)activeDeck=T;for(let i=0;i<rings.length;i++){rings[i].lap=null;fill(rings[i],i)}document.getElementById('deck-count').textContent=activeDeck.length+' Karten';}
+
 function renderFormula(el,card,displayMode=false){
   const latex=card.latex||card.fields?.['LaTeX — Telegram']||card.fields?.LaTeX;
   if(latex&&window.katex){
@@ -124,14 +132,14 @@ for(let i=0;i<RINGS;i++){
 function fill(r,n){
   [...r.children].forEach((d,j)=>{
     const h=(Math.imul(n,73856093)^Math.imul(j+7,19349663))>>>0;
-    const ti=h%T.length,c=ST[(h>>>9)%ST.length];
-    d.dataset.t=ti;d.dataset.c=c;
+    const ti=h%activeDeck.length,c=ST[(h>>>9)%ST.length];
+    d.dataset.t=T.indexOf(activeDeck[ti]);d.dataset.c=c;
     const f=d.firstChild;f.className='face c-'+c;
-    f.children[0].textContent=T[ti].t.replace(/\u00AD/g,'');
+    f.children[0].textContent=activeDeck[ti].t.replace(/\u00AD/g,'');
         const preview=f.children[1];preview.classList.remove('typeset');
-        if(T[ti].image){
-          preview.replaceChildren();const img=document.createElement('img');img.src=T[ti].image;img.alt=T[ti].t;img.loading='lazy';preview.appendChild(img);
-        }else{renderFormula(preview,T[ti])}
+        if(activeDeck[ti].image){
+          preview.replaceChildren();const img=document.createElement('img');img.src=activeDeck[ti].image;img.alt=activeDeck[ti].t;img.loading='lazy';preview.appendChild(img);
+        }else{renderFormula(preview,activeDeck[ti])}
   });
 }
 let cam=0,vel=0,rot=0,dragVel=0,slow=1,hov=false,isOpen=false;
@@ -188,7 +196,7 @@ function openT(t,rc,a,cls){
   p.innerHTML='<button class="x" aria-label="Schließen">✕</button><span class="esc">Esc</span><div class="in"></div>';
   const content=p.querySelector('.in');
   const add=(tag,text,parent=content)=>{const el=document.createElement(tag);el.textContent=text;parent.appendChild(el);return el};
-  add('small',t.chapter?'Kapitel '+t.chapter:'Information');
+  add('small',Number.isInteger(t.frankeTopic)?'Franke · Thema '+(t.frankeTopic+1)+' · '+frankeTopics[t.frankeTopic][0]+' · '+t.frankeDate:(t.chapter?'Kapitel '+t.chapter:'Information'));
   add('h2',t.t);
   if(t.fields){
     const answer=document.createElement('details');content.appendChild(answer);
@@ -230,7 +238,8 @@ function closeT(){
 }
 addEventListener('keydown',e=>{if(e.key==='Escape')closeT()});
 const mid={left:innerWidth/2-100,top:innerHeight/2-70,width:200,height:140,a:0};
-const rnd=()=>{const i=Math.floor(Math.random()*T.length);return[T[i],'c-'+ST[i%ST.length]]};
+const rnd=()=>{const i=Math.floor(Math.random()*activeDeck.length);return[activeDeck[i],'c-'+ST[i%ST.length]]};
+document.getElementById('deck-select').addEventListener('change',e=>selectDeck(e.target.value));document.getElementById('deck-count').textContent=T.length+' Karten';
 const dive=()=>{vel=3000};
 document.getElementById('dive').onclick=dive;document.getElementById('n1').onclick=dive;
 document.getElementById('quiz').onclick=document.getElementById('n2').onclick=()=>{const[t,c]=rnd();openT(t,{left:innerWidth/2-100,top:innerHeight/2-70,width:200,height:140},0,c)};
